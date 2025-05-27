@@ -1,6 +1,8 @@
 opipeline {
     agent any
-
+    tools {
+        jdk 'jdk' 
+    }
     stages {
         stage('scm') {
             steps {
