@@ -1,5 +1,11 @@
 pipeline {
     agent any
+    tools {
+        jdk 'jdk'  // Requires JDK tool configuration in Jenkins
+    }
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
+    }
     stages {
         stage('scm') {
             steps {
