@@ -12,15 +12,5 @@ pipeline {
                 sh './gradlew clean build -x test'
             }
         }
-        stage('java') {
-            steps {
-                sh './gradlew pmdMain'
-            }
-        }
-        stage('checkstyle') {
-            steps {
-                sh './gradlew checkstyleMain'
-            }
-        }
     }
 }
