@@ -9,12 +9,17 @@ pipeline {
         }
         stage('build') {
             steps {
-                sh './gradlew build'
+                sh './gradlew clean build -x test'
             }
         }
-        stage('run') {
+        stage('java') {
             steps {
-                sh './gradlew run'
+                sh './gradlew pmdMain'
+            }
+        }
+        stage('checkstyle') {
+            steps {
+                sh './gradlew checkstyleMain'
             }
         }
     }
