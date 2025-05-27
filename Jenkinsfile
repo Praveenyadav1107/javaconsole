@@ -6,9 +6,15 @@ pipeline {
             steps {
                 git branch: 'main', url: 'https://github.com/naresha/javaconsole'
             }
+        }
         stage('build') {
             steps {
-                sh 'gradle build'
+                sh './gradlew build'
+            }
+        }
+        stage('run') {
+            steps {
+                sh './gradlew run'
             }
         }
     }
