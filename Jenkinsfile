@@ -23,6 +23,11 @@ pipeline {
             steps {
                 sh './gradlew checkstyleMain'
             }
+        } 
+        stage('automated test') {
+            steps {
+                sh './gradlew test jacocoTestReport'
+            }
         }
     }
 }
